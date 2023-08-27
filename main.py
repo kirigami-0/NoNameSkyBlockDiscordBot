@@ -16,8 +16,11 @@ config = json.load(open('config.json', 'r'))
 # 起動したらコグを読み込ませる
 @bot.event
 async def on_ready():
-    
+    """
+    起動処理
+    """
     for cog_name in config["cog_name"]:
+        print("bot起動")
         await bot.load_extension(f'Cog.{cog_name}')
 
 bot.run(os.getenv("TOKEN"))
