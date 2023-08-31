@@ -1,4 +1,6 @@
 {
-    "autoDocstring.docstringFormat": "numpy",
-    "autoDocstring.startOnNewLine": true
+  "autoDocstring.docstringFormat": "numpy",
+  "autoDocstring.startOnNewLine": true,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "vscode.json-language-features"
 }

@@ -7,6 +7,9 @@
 # C extensions
 **\*.so
 
+# vscode workspase
+.vscode
+
 # Distribution / packaging
 **\.Python
 **\build
