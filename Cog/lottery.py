@@ -11,6 +11,14 @@ class Lottery(commands.Cog):
     
     @commands.command()
     async def omikuji(self, ctx):
+        """
+        おみくじを行う
+
+        Parameters
+        ----------
+        ctx : context
+            コンテキスト
+        """
         value = self.omikuji_data["value"]
         weights = self.omikuji_data["weights"]
         message = f"あなたの運勢は||{random.choices(value, weights=weights)[0]}||"
@@ -36,6 +44,7 @@ class Lottery(commands.Cog):
             if com.is_empty(weights) and com.is_empty(value):
                 # 引数がない場合
                 message = "コマンドが不正です"
+                message += "引数には[確率] [内容]の順で記載してください"
                 await ctx.send(message)
             elif not com.is_empty(weights) and com.is_empty(value):
                 # 確率のみある場合
@@ -67,7 +76,7 @@ class Lottery(commands.Cog):
                     message = "不正なエラーです。"
             await ctx.send(message)
         except ValueError:
-            await ctx.send("えらー")
+            await ctx.send("内部エラーが発生しました。")
 
 async def setup(bot):
     await bot.add_cog(Lottery(bot))
